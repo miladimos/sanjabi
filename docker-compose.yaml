@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  my-golang-app-run:
+    container_name: my-golang-app-run
+    build: .
+    command: go run main.go
+    volumes:
+      - ./src:/go/src/app
+    working_dir: /go/src/app
+    ports:
+      - "3030:3000"
+    environment:
+      PORT: 3001
+  postgres:
+    image: postgres:latest
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: your_username
+
+      POSTGRES_PASSWORD: your_password
+
+      POSTGRES_DB: your_database_name
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"

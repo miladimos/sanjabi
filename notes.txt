@@ -1,0 +1,13 @@
+add logger
+https://github.com/uber-go/zap
+https://golang.withcodeexample.com/blog/efficient-email-sending-in-go-goroutines-and-channels/
+
+https://ldej.nl/post/enterprise-go-architecture/
+
+https://github.com/vsouza/go-gin-boilerplate
+
+
+https://github.com/RezaOptic/gin-project-structure
+
+
+
