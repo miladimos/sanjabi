@@ -3,15 +3,16 @@ package config
 import (
 	"fmt"
 	"log"
-	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 func ConnectToPostgresDB() *gorm.DB {
-	var err error
-	dsn := os.Getenv("DB_DSN")
+
+	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
+
+	// dsn := os.Getenv("DB_DSN")
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
@@ -19,7 +20,7 @@ func ConnectToPostgresDB() *gorm.DB {
 		panic("Failed to connect to postgres")
 	}
 
-	// db.AutoMigrate()
+	// db.AutoMigrate(&User{})
 
 	fmt.Println("Connected to postgres")
 

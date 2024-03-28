@@ -23,11 +23,15 @@ func SetupRouter() *gin.Engine {
 			v1.GET("/users", func(c *gin.Context) {
 				c.JSON(http.StatusOK, gin.H{"users": "users"})
 			})
+
+			v1.GET("/users/:user", func(c *gin.Context) {
+				c.JSON(http.StatusOK, gin.H{"user": "user"})
+			})
 		}
 	}
 
-	r.GET("/", func(context *gin.Context) {
-		context.JSON(http.StatusOK, gin.H{"msg": "Hello"})
+	r.GET("/ping", func(context *gin.Context) {
+		context.String(http.StatusOK, "pong")
 	})
 
 	// r.GET("/users/:name", user)

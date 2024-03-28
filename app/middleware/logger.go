@@ -5,9 +5,9 @@ import (
 )
 
 func Logger() gin.HandlerFunc {
-	return func(c *gin.Context) {
+	return func(context *gin.Context) {
 		// before request
-		c.Next()
+		context.Next()
 		// after request
 	}
 }
